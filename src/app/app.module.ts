@@ -7,13 +7,17 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    UnauthorizedComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
