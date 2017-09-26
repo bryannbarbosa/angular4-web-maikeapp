@@ -4,9 +4,10 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class AuthService {
 
-  BaseUrl:string = 'http://localhost:4000/api/'
+  BaseUrl:string = 'http://localhost:4000/api/';
+  UserToken: string;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private options: RequestOptions) { }
 
   AuthUser(user) {
 
@@ -27,13 +28,24 @@ export class AuthService {
 
     if(localStorage.getItem('token') === undefined) {
       localStorage.setItem('token', token);
+      this.UserToken = token;
     }
 
     else {
       localStorage.removeItem('token');
       localStorage.setItem('token', token);
+      this.UserToken = token;
     }
 
+  }
+
+  ConfigHeaders() {
+    this.options = new RequestOptions({
+      headers: new Headers({
+        'Content-type': 'application/json',
+        'authorization': 'Bearer ' + this.UserToken
+      })
+    });
   }
 
 }
