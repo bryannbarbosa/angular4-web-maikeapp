@@ -29,12 +29,14 @@ export class AuthService {
     if(localStorage.getItem('token') === undefined) {
       localStorage.setItem('token', token);
       this.UserToken = token;
+      console.log(token);
     }
 
     else {
       localStorage.removeItem('token');
       localStorage.setItem('token', token);
       this.UserToken = token;
+      console.log(token);
     }
 
   }
@@ -43,7 +45,7 @@ export class AuthService {
     this.options = new RequestOptions({
       headers: new Headers({
         'Content-type': 'application/json',
-        'authorization': 'Bearer ' + this.UserToken
+        'Authorization': 'Bearer ' + this.UserToken
       })
     });
   }
