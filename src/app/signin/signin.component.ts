@@ -21,6 +21,11 @@ export class SigninComponent implements OnInit {
     this.authService.AuthUser(user);
   }
 
+  Quit() {
+    let user = null;
+    localStorage.removeItem('token');
+  }
+
   ngOnInit() {
   }
 
