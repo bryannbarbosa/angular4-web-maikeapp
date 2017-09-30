@@ -1,6 +1,11 @@
 <div class="row mt-5">
   <div class="col-sm-4 mx-auto">
-    <h3 class="text-center">Área de usuário</h3>
+    <h3 class="text-center">Categorias</h3>
+    <ul>
+      <li *ngFor="let category of categories">
+        {{ category }}
+      </li>
+    </ul>
     <div class="form-group">
       <button (click)="Quit()" class="btn btn-danger btn-block">Sair</button>
     </div>

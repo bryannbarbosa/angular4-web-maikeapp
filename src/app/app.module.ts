@@ -13,6 +13,7 @@ import { CategoriesComponent } from './categories/categories.component';
 
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
+import { APIService } from './api.service';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { AuthGuardService } from './auth-guard.service';
     FormsModule,
     HttpModule
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, APIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

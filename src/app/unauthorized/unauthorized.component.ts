@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { APIService } from '../api.service';
+
 @Component({
   selector: 'app-unauthorized',
   templateUrl: './unauthorized.component.html',
@@ -8,9 +10,12 @@ import { Router } from '@angular/router';
 })
 export class UnauthorizedComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  categories: any;
+
+  constructor(private router: Router, private API: APIService) { }
 
   ngOnInit() {
+
   }
 
   Quit() {
