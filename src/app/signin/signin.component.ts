@@ -19,11 +19,7 @@ export class SigninComponent implements OnInit {
       password: this.password
     };
     this.authService.AuthUser(user);
-  }
 
-  Quit() {
-    let user = null;
-    localStorage.removeItem('token');
   }
 
   ngOnInit() {

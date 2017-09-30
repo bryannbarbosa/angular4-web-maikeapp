@@ -12,6 +12,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { CategoriesComponent } from './categories/categories.component';
 
 import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { AuthService } from './auth.service';
     FormsModule,
     HttpModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

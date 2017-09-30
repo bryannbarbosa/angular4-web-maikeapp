@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -7,7 +8,8 @@ export class AuthService {
   BaseUrl: string = 'http://localhost:4000/api/';
   UserToken: string;
 
-  constructor(private http: Http, private options: RequestOptions) { }
+  constructor(private http: Http, private options: RequestOptions,
+  private router: Router) { }
 
   AuthUser(user) {
 
@@ -16,6 +18,7 @@ export class AuthService {
       res => {
         if (res.json().success) {
           this.StoreToken(res.json().response);
+          this.router.navigateByUrl('unauthorized');
         }
       },
       err => {
@@ -36,13 +39,17 @@ export class AuthService {
       localStorage.setItem('token', token);
       this.UserToken = token;
       this.ConfigHeaders();
-      console.log(this.UserToken)
     }
 
   }
 
-  getToken() {
-    return localStorage.getItem('token');
+  isConnected() {
+    if(localStorage.getItem('token') != undefined) {
+      return true;
+    } else {
+      return false;
+    }
+
   }
 
   ConfigHeaders() {

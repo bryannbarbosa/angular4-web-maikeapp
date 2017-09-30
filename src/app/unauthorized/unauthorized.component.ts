@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-unauthorized',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UnauthorizedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  Quit() {
+    let user = null;
+    localStorage.removeItem('token');
+    console.log('Token removed!')
+    this.router.navigateByUrl('');
   }
 
 }
