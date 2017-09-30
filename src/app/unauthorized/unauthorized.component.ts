@@ -10,7 +10,7 @@ import { APIService } from '../api.service';
 })
 export class UnauthorizedComponent implements OnInit {
 
-  categories: any;
+  categories;
 
   constructor(private router: Router, private API: APIService) { }
 
